@@ -16,13 +16,13 @@ app.use("/bfhl", bfhlRoute);
 
 
 app.get("/", (_req, res) => {
-  res.send("API is running. Use POST /bfhl");
+  return res.send("API is running. Use POST /bfhl");
 });
 
 
 app.use((err: Error, _req: express.Request, res: express.Response, _next: express.NextFunction) => {
   console.error(err.stack);
-  res.status(500).json({ is_success: false, error: "Internal Server Error" });
+  return res.status(500).json({ is_success: false, error: "Internal Server Error" });
 });
 
 app.listen(PORT, () => {

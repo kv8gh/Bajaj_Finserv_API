@@ -50,7 +50,9 @@ export const handleApiRequest = (req: Request, res: Response): void => {
     };
 
     res.status(200).json(response);
+    return;
   } catch (err: any) {
     res.status(500).json({ is_success: false, error: err.message });
+    return;
   }
 };
