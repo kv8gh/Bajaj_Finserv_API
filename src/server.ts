@@ -15,12 +15,12 @@ app.use(morgan("dev"));
 app.use("/bfhl", bfhlRoute);
 
 
-app.get("/", (_req, res) => {
+app.get("/", (req, res) => {
   res.send("API is running. Use POST /bfhl");
 });
 
 
-app.use((err: Error, _req: express.Request, res: express.Response, _next: express.NextFunction) => {
+app.use((err: Error, req: express.Request, res: express.Response, next: express.NextFunction) => {
   console.error(err.stack);
   res.status(500).json({ is_success: false, error: "Internal Server Error" });
 });
